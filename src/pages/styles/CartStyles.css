@@ -1,0 +1,84 @@
+:root {
+    --primart-orange-red-color: #ff3632;
+}
+
+.cart-page {
+    margin-top: 64px;
+}
+
+.cart-page h1 {
+    padding: 15px !important;
+}
+
+.cart-page h1>p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.cart-page .card {
+    padding: 5px !important;
+    height: 150px !important;
+    margin-bottom: 5px !important;
+}
+
+.cart-page .cart-remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-page .cart-summary {
+    text-align: center;
+}
+
+.indivisual_cart_information {
+    margin-bottom: 20px;
+}
+
+.indivisual_cart_information img {
+    width: 25%;
+}
+
+.indivisual_cart_information_form {
+    padding-left: 25px;
+}
+
+.indivisual_cart_information_form .cart_price {
+    font-size: 22px;
+    color: var(--primart-orange-red-color);
+    margin-bottom: -2px;
+}
+
+.indivisual_cart_information .btn-danger {
+    background-color: var(--primart-orange-red-color) !important;
+    border-radius: 0px !important;
+}
+
+.Cash_on_Delivery_h3 {
+    background-color: var(--primart-orange-red-color);
+    padding: 12px;
+    color: white;
+    margin: 20px 0px;
+}
+
+.bkash_input {
+    padding: 10px 5px;
+    width: 100%;
+    margin: 6px 0px;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 998px) {
+    /*Big smartphones [426px -> 998px]*/
+    .indivisual_cart_information img {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
+    .indivisual_cart_information img {
+        width: 45%;
+        height: auto;
+    }
+}

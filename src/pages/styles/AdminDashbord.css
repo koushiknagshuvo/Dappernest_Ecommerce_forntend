@@ -1,0 +1,115 @@
+:root {
+    --primary-Orange-Deep-Color: #ff3632;
+    --primary-Black-Color: black;
+    --primary-Orange-Lite-Color: #FF7875;
+    --primary-Border-Color: #dbdbdb;
+}
+
+label,
+input,
+Select,
+textarea {
+    border-radius: 0px !important;
+}
+
+label:hover {
+    border: none;
+}
+
+
+/* Create Categoty Page */
+
+.btn-primary {
+    border-radius: 0px !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-danger {
+    border-radius: 0px !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: var(--primary-Orange-Deep-Color);
+}
+
+
+/* Create Categoty Page */
+
+
+/* Create Product Page  */
+
+
+/* All_indivisual_category disign */
+
+.All_indivisual_category {
+    transition: .3s ease;
+}
+
+.All_indivisual_category:hover {
+    transform: translateY(-20px);
+}
+
+.All_indivisual_category_image {
+    border-radius: 0px;
+    border: none;
+    width: 100%;
+    height: auto;
+}
+
+.All_indivisual_category_name {
+    color: black;
+    font-size: 35px;
+}
+
+.home-page .card-title {
+    padding: 15px 0px;
+}
+
+.Category_product {
+    transition: 0.3s ease;
+}
+
+.Category_product:hover .card-title {
+    text-decoration: underline;
+}
+
+.Category_product:hover {
+    transform: translateY(-20px);
+}
+
+.home-page .card-price {
+    padding: 10px 0px;
+}
+
+.Categories_title {
+    font-size: 4rem;
+    color: black;
+}
+
+@media only screen and (max-width: 998px) {
+    /*Tablets [601px -> 998px]*/
+    .All_indivisual_category_image {
+        width: auto;
+    }
+    .Categories_title {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /*Big smartphones [426px -> 600px]*/
+}
+
+@media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
+}
+
+
+/* All_indivisual_category disign */
+
+.Select_option {
+    border: 1px solid var(--primary-Border-Color) !important;
+}
+
+
+/* Create Product Page  */
