@@ -16,6 +16,8 @@ const CartPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState("");
+  // const [TransactionId, setTransactionId] = useState("");
+  // const [BkashNumber, setBkashNumber] = useState("");
 
   //total price
   const totalPrice = () => {
@@ -77,6 +79,19 @@ const CartPage = () => {
       setLoading(false);
     }
   };
+
+  // const handlePamentByBkash = async e => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const { data } = axios.post("/api/v1/product/order/payment", {
+  //       TransactionId,
+  //       BkashNumber,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleOptionChange = e => {
     setSelectedOption(e.target.value);
@@ -198,23 +213,42 @@ const CartPage = () => {
 
                 {selectedOption === "bkash" && (
                   <div>
-                    <h3 className="Cash_on_Delivery_h3"> 01720648273</h3>
-                    <h5>Send Money a total of : {totalPrice()} </h5>
+                    <h4 className="Cash_on_Delivery_h3">
+                      Please Send Money On Bkash [Personal]
+                    </h4>
+                    <h3 className="Delivery_buy_bkash_h3">
+                      <span>0</span>
+                      <span>1</span>
+                      <span>7</span>
+                      <span>2</span>
+                      <span>0</span>
+                      <span>6</span>
+                      <span>4</span>
+                      <span>8</span>
+                      <span>2</span>
+                      <span>7</span>
+                      <span>3</span>
+                    </h3>
+                    <h5>Send Money A Total Of : {totalPrice()} </h5>
                     <input
                       type="text"
                       placeholder="Transaction Id"
                       className="bkash_input"
+                      // onChange={e => setTransactionId(e.target.value)}
                     />
                     <input
                       type="text"
                       placeholder="Sending Bkash Number"
                       className="bkash_input"
+                      // onChange={e => setBkashNumber(e.target.value)}
                     />
                   </div>
                 )}
               </div>
 
-              {/* <button className="btn btn-primary w-100 my-2">
+              {/* <button
+                className="btn btn-primary w-100 my-2"
+                onClick={handlePamentByBkash}>
                 Make Payment
               </button> */}
               {/* cash one delevery */}

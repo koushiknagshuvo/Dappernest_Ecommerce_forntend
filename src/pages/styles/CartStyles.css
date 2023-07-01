@@ -55,10 +55,25 @@
 }
 
 .Cash_on_Delivery_h3 {
-    background-color: var(--primart-orange-red-color);
+    background-color: black;
     padding: 12px;
     color: white;
+    font-size: 18px;
     margin: 20px 0px;
+}
+
+.Delivery_buy_bkash_h3 {
+    background-color: rgb(227, 20, 107);
+    padding: 12px;
+    color: black;
+    font-size: 18px;
+    margin: 20px 0px;
+}
+
+.Delivery_buy_bkash_h3 span {
+    background-color: white;
+    padding: 5px 8px;
+    margin-right: 5px;
 }
 
 .bkash_input {

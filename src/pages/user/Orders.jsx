@@ -7,7 +7,7 @@ import Layout from "./../../components/Layout/Layout";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const [auth] = useAuth();
+  const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
       const { data } = await axios.get("/api/v1/auth/orders");
@@ -22,16 +22,16 @@ const Orders = () => {
   }, [auth?.token]);
   return (
     <Layout title={"Your Orders"}>
-      <div className="container mt-5">
+      <div className=" container mx-auto p-3 m-3 dashboard">
         <div className="row">
-          <div className="col-12 col-md-6 col-lg-4">
+          <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-12 col-md-6 col-lg-8">
+          <div className="col-md-9">
             <h1 className="text-center">All Orders</h1>
             {orders?.map((o, i) => {
               return (
-                <div className="">
+                <div className="border shadow">
                   <table className="table">
                     <thead>
                       <tr>
@@ -56,13 +56,12 @@ const Orders = () => {
                   </table>
                   <div className="container">
                     {o?.products?.map((p, i) => (
-                      <div className="row mb-2 p-3  flex-row" key={p._id}>
+                      <div className="row mb-2 p-3 card flex-row" key={p._id}>
                         <div className="col-md-4">
                           <img
                             src={`/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
-                            width="100px"
                           />
                         </div>
                         <div className="col-md-8">

@@ -38,7 +38,7 @@ const CreateProduct = () => {
   }, []);
 
   //create product function
-  const handleCreate = async (e) => {
+  const handleCreate = async e => {
     e.preventDefault();
     try {
       const productData = new FormData();
@@ -80,10 +80,10 @@ const CreateProduct = () => {
                 size="large"
                 showSearch
                 className=" w-100 mb-3 Select_option "
-                onChange={(value) => {
+                onChange={value => {
                   setCategory(value);
                 }}>
-                {categories?.map((c) => (
+                {categories?.map(c => (
                   <Option key={c._id} value={c._id}>
                     {c.name}
                   </Option>
@@ -96,7 +96,7 @@ const CreateProduct = () => {
                     type="file"
                     name="photo"
                     accept="image/*"
-                    onChange={(e) => setPhoto(e.target.files[0])}
+                    onChange={e => setPhoto(e.target.files[0])}
                     hidden
                   />
                 </label>
@@ -119,7 +119,7 @@ const CreateProduct = () => {
                   value={name}
                   placeholder="write a name"
                   className="form-control"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={e => setName(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -128,7 +128,7 @@ const CreateProduct = () => {
                   value={description}
                   placeholder="write a description"
                   className="form-control"
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={e => setDescription(e.target.value)}
                 />
               </div>
 
@@ -138,7 +138,7 @@ const CreateProduct = () => {
                   value={price}
                   placeholder="write a Price"
                   className="form-control"
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={e => setPrice(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -147,7 +147,7 @@ const CreateProduct = () => {
                   value={quantity}
                   placeholder="write a quantity"
                   className="form-control"
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onChange={e => setQuantity(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -157,7 +157,7 @@ const CreateProduct = () => {
                   size="large"
                   showSearch
                   className="Select_option w-100 mb-3"
-                  onChange={(value) => {
+                  onChange={value => {
                     setShipping(value);
                   }}>
                   <Option value="0">No</Option>

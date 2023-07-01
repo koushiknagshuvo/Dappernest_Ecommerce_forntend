@@ -9,25 +9,23 @@ const Categories = () => {
 
   return (
     <Layout title={"All Categories"}>
-      <div style={{ marginTop: "50px" }}>
-        <div className="container">
-          <div className="row gx-3 overflow-hidden">
-            {categories.map((c) => (
+      <div>
+        <div className="container mt-5">
+          <div className="row gx-3">
+            {categories.map(c => (
               <div
-                className="col-12 col-md-6 col-lg-4 All_indivisual_category overflow-hidden "
+                className=" card col-12 col-md-6 col-lg-4 All_indivisual_category "
                 key={c._id}>
-                <div className="category_image  p-3">
-                  <Link
-                    to={`/category/${c.slug}`}
-                    className="All_indivisual_category_name">
-                    <img
-                      className="All_indivisual_category_image"
-                      src={`/api/v1/category/category-photo/${c._id}`}
-                      alt={c.name}
-                    />
-                    {c.name}
-                  </Link>
-                </div>
+                <Link
+                  to={`/category/${c.slug}`}
+                  className="All_indivisual_category_name">
+                  <img
+                    className="All_indivisual_category_image"
+                    src={`/api/v1/category/category-photo/${c._id}`}
+                    alt={c.name}
+                  />
+                  {c.name}
+                </Link>
               </div>
             ))}
           </div>

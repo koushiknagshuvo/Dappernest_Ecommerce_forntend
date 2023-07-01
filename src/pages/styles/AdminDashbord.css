@@ -41,6 +41,10 @@ label:hover {
 
 /* All_indivisual_category disign */
 
+.card {
+    border: none !important;
+}
+
 .All_indivisual_category {
     transition: .3s ease;
 }
@@ -102,6 +106,9 @@ label:hover {
 
 @media only screen and (max-width: 425px) {
     /*Small smartphones [325px -> 425px]*/
+    .All_indivisual_category_image {
+        height: 48vh;
+    }
 }
 
 
