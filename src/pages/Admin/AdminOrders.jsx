@@ -62,6 +62,8 @@ const AdminOrders = () => {
                         <th scope="col"> date</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Transaction Id</th>
+                        <th scope="col">Sending Bkash Number</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -70,7 +72,7 @@ const AdminOrders = () => {
                         <td>
                           <Select
                             bordered={false}
-                            onChange={(value) => handleChange(o._id, value)}
+                            onChange={value => handleChange(o._id, value)}
                             defaultValue={o?.status}>
                             {status.map((s, i) => (
                               <Option key={i} value={s}>
@@ -81,8 +83,11 @@ const AdminOrders = () => {
                         </td>
                         <td>{o?.buyer?.name}</td>
                         <td>{moment(o?.createAt).fromNow()}</td>
-                        <td>{o?.payment.success ? "Success" : "Failed"}</td>
+                        <td>Done</td>
+                        {/* <td>{o?.payment.success ? "Success" : "Failed"}</td> */}
                         <td>{o?.products?.length}</td>
+                        <td>{o?.TransactionId}</td>
+                        <td>{o?.BkashNumber}</td>
                       </tr>
                     </tbody>
                   </table>

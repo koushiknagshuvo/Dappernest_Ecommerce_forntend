@@ -1,5 +1,5 @@
 import axios from "axios";
-import DropIn from "braintree-web-drop-in-react";
+// import DropIn from "braintree-web-drop-in-react";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -11,13 +11,13 @@ import "./styles/CartStyles.css";
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
-  const [clientToken, setClientToken] = useState("");
-  const [instance, setInstance] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [clientToken, setClientToken] = useState("");
+  // const [instance, setInstance] = useState("");
+  // const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState("");
-  // const [TransactionId, setTransactionId] = useState("");
-  // const [BkashNumber, setBkashNumber] = useState("");
+  const [TransactionId, setTransactionId] = useState("");
+  const [BkashNumber, setBkashNumber] = useState("");
 
   //total price
   const totalPrice = () => {
@@ -48,50 +48,55 @@ const CartPage = () => {
   };
 
   // get payment gateway token
-  const getToken = async () => {
-    try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
-      setClientToken(data?.clientToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getToken();
-  }, [auth?.token]);
+  // const getToken = async () => {
+  //   try {
+  //     const { data } = await axios.get("/api/v1/product/braintree/token");
+  //     setClientToken(data?.clientToken);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getToken();
+  // }, [auth?.token]);
 
   // handle payments
-  const handlePayment = async () => {
+  // const handlePayment = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const { nonce } = await instance.requestPaymentMethod();
+  //     const { data } = await axios.post("/api/v1/product/braintree/payment", {
+  //       nonce,
+  //       cart,
+  //     });
+  //     setLoading(false);
+  //     localStorage.removeItem("cart");
+  //     setCart([]);
+  //     navigate("/dashboard/user/orders");
+  //     toast.success("Payment Completed Successfully ");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
+
+  const handlePamentByBkash = async e => {
+    e.preventDefault();
+
     try {
-      setLoading(true);
-      const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
-        nonce,
+      const { data } = axios.post("/api/v1/product/order/payment", {
+        TransactionId,
+        BkashNumber,
         cart,
       });
-      setLoading(false);
       localStorage.removeItem("cart");
       setCart([]);
       navigate("/dashboard/user/orders");
       toast.success("Payment Completed Successfully ");
     } catch (error) {
       console.log(error);
-      setLoading(false);
     }
   };
-
-  // const handlePamentByBkash = async e => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const { data } = axios.post("/api/v1/product/order/payment", {
-  //       TransactionId,
-  //       BkashNumber,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handleOptionChange = e => {
     setSelectedOption(e.target.value);
@@ -234,26 +239,26 @@ const CartPage = () => {
                       type="text"
                       placeholder="Transaction Id"
                       className="bkash_input"
-                      // onChange={e => setTransactionId(e.target.value)}
+                      onChange={e => setTransactionId(e.target.value)}
                     />
                     <input
                       type="text"
                       placeholder="Sending Bkash Number"
                       className="bkash_input"
-                      // onChange={e => setBkashNumber(e.target.value)}
+                      onChange={e => setBkashNumber(e.target.value)}
                     />
                   </div>
                 )}
               </div>
 
-              {/* <button
+              <button
                 className="btn btn-primary w-100 my-2"
                 onClick={handlePamentByBkash}>
                 Make Payment
-              </button> */}
+              </button>
               {/* cash one delevery */}
 
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 {!clientToken || !auth?.token || !cart?.length ? (
                   ""
                 ) : (
@@ -276,7 +281,7 @@ const CartPage = () => {
                     </button>
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
