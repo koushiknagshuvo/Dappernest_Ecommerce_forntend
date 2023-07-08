@@ -64,6 +64,7 @@ const ProductDetails = () => {
             <span className="Description">
               Description : {product.description}
             </span>
+
             <button
               className="btn btn-dark"
               onClick={() => {
@@ -85,7 +86,7 @@ const ProductDetails = () => {
           {relatedProducts.length < 1 && (
             <p className="text-center">No Similar Products found</p>
           )}
-          {relatedProducts?.map((p) => (
+          {relatedProducts?.map(p => (
             <div
               className="col-12 col-md-3 Similar_Products_cart_body"
               key={p._id}>

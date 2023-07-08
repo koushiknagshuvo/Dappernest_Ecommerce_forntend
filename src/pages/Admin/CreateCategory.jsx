@@ -1,4 +1,3 @@
-import { Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -15,7 +14,7 @@ const CreateCategory = () => {
   const [icon, setIcon] = useState("");
 
   // create Category
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
       const categoryDate = new FormData();
@@ -24,7 +23,7 @@ const CreateCategory = () => {
       categoryDate.append("icon", icon);
 
       const { data } = await axios.post(
-        "/api/v1/category/create-category",
+        `${process.env.REACT_APP_API}/api/v1/category/create-category`,
         categoryDate
       );
       if (data?.success) {
@@ -40,7 +39,9 @@ const CreateCategory = () => {
   // get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -55,10 +56,10 @@ const CreateCategory = () => {
   }, []);
 
   //delete category
-  const handleDelete = async (pId) => {
+  const handleDelete = async pId => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/category/delete-category/${pId}`
+        `${process.env.REACT_APP_API}/api/v1/category/delete-category/${pId}`
       );
       if (data.success) {
         toast.success(`category is deleted`);
@@ -89,7 +90,7 @@ const CreateCategory = () => {
                     type="file"
                     name="icon"
                     accept="image/*"
-                    onChange={(e) => setIcon(e.target.files[0])}
+                    onChange={e => setIcon(e.target.files[0])}
                     hidden
                   />
                 </label>
@@ -115,7 +116,7 @@ const CreateCategory = () => {
                     type="file"
                     name="photo"
                     accept="image/*"
-                    onChange={(e) => setPhoto(e.target.files[0])}
+                    onChange={e => setPhoto(e.target.files[0])}
                     hidden
                   />
                 </label>
@@ -151,7 +152,7 @@ const CreateCategory = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories?.map((c) => (
+                  {categories?.map(c => (
                     <>
                       <tr>
                         <td>
@@ -159,7 +160,7 @@ const CreateCategory = () => {
                             className="category_image card"
                             style={{ width: "5rem" }}>
                             <img
-                              src={`/api/v1/category/category-icon/${c._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/category/category-icon/${c._id}`}
                               alt={c.name}
                             />
                           </div>
@@ -169,7 +170,7 @@ const CreateCategory = () => {
                             className="category_image card"
                             style={{ width: "5rem" }}>
                             <img
-                              src={`/api/v1/category/category-photo/${c._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/category/category-photo/${c._id}`}
                               alt={c.name}
                             />
                           </div>

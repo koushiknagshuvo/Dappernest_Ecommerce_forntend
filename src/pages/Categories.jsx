@@ -14,7 +14,7 @@ const Categories = () => {
           <div className="row gx-3">
             {categories.map(c => (
               <div
-                className=" card col-12 col-md-6 col-lg-4 All_indivisual_category "
+                className=" card col-12 col-md-6 col-lg-4 mt-3 All_indivisual_category "
                 key={c._id}>
                 <Link
                   to={`/category/${c.slug}`}

@@ -18,6 +18,9 @@ const CartPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [TransactionId, setTransactionId] = useState("");
   const [BkashNumber, setBkashNumber] = useState("");
+  const [CashOnDelevary, setCashOnDelevary] = useState(
+    "Buyer Choose Cash On Delivery Option"
+  );
 
   //total price
   const totalPrice = () => {
@@ -80,11 +83,28 @@ const CartPage = () => {
   //   }
   // };
 
+  const handleCashOnDelevary = async e => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("/api/v1/product/order/Cashpayment", {
+        option: CashOnDelevary,
+        cart,
+      });
+
+      localStorage.removeItem("cart");
+      setCart([]);
+      navigate("/dashboard/user/orders");
+      toast.success("Payment Completed Successfully ");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handlePamentByBkash = async e => {
     e.preventDefault();
 
     try {
-      const { data } = axios.post("/api/v1/product/order/payment", {
+      const { data } = await axios.post("/api/v1/product/order/payment", {
         TransactionId,
         BkashNumber,
         cart,
@@ -213,6 +233,18 @@ const CartPage = () => {
                     <h3 className="Cash_on_Delivery_h3">
                       You Choose Cash On Delivery Option
                     </h3>
+                    <input
+                      type="text"
+                      placeholder="Buyer Choose Cash On Delivery Option"
+                      className="bkash_input"
+                      value={CashOnDelevary}
+                      onChange={e => setCashOnDelevary(e.target.value)}
+                    />
+                    <button
+                      className="btn btn-primary w-100 my-2"
+                      onClick={handleCashOnDelevary}>
+                      Make Payment On Cash
+                    </button>
                   </div>
                 )}
 
@@ -239,23 +271,25 @@ const CartPage = () => {
                       type="text"
                       placeholder="Transaction Id"
                       className="bkash_input"
+                      required
                       onChange={e => setTransactionId(e.target.value)}
                     />
                     <input
                       type="text"
                       placeholder="Sending Bkash Number"
                       className="bkash_input"
+                      required
                       onChange={e => setBkashNumber(e.target.value)}
                     />
+                    <button
+                      className="btn btn-primary w-100 my-2"
+                      onClick={handlePamentByBkash}>
+                      Make Payment By bKash
+                    </button>
                   </div>
                 )}
               </div>
 
-              <button
-                className="btn btn-primary w-100 my-2"
-                onClick={handlePamentByBkash}>
-                Make Payment
-              </button>
               {/* cash one delevery */}
 
               {/* <div className="mt-2">

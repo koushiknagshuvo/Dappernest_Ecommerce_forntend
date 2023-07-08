@@ -50,6 +50,9 @@
 
 .card-img-top {
     border-radius: 0px;
+    height: 22rem;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .All_Products {
