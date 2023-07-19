@@ -51,7 +51,7 @@ const ProductDetails = () => {
             />
           </div>
           <div class="col-12 col-md-6 me-auto product-details-info ">
-            <h1>{product.name}</h1>
+            <h1 className="mt-2">{product.name}</h1>
             <h6>
               Price :
               <span className="ps-2">
@@ -61,6 +61,15 @@ const ProductDetails = () => {
                 })}
               </span>
             </h6>
+
+            <div className="mb-2">
+              <span className="me-2 ">(38)</span>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star-half"></i>
+            </div>
             <span className="Description">
               Description : {product.description}
             </span>
@@ -88,7 +97,7 @@ const ProductDetails = () => {
           )}
           {relatedProducts?.map(p => (
             <div
-              className="col-12 col-md-3 Similar_Products_cart_body"
+              className="col-sm-12 col-md-3 mt-3 Similar_Products_cart_body"
               key={p._id}>
               <img
                 src={`/api/v1/product/product-photo/${p._id}`}
@@ -97,7 +106,7 @@ const ProductDetails = () => {
               />
               <div className="card-body">
                 <div className="card-name-price">
-                  <h5 className="card-title">{p.name}</h5>
+                  <h5 className="card-title ">{p.name}</h5>
                   <h5 className="card-price">
                     {p.price.toLocaleString("en-US", {
                       style: "currency",

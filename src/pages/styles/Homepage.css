@@ -29,7 +29,7 @@
 .home-page .card-price {
     color: var(--primary-Orange-Deep-Color);
     font-size: 20px;
-    margin: -8px 0px;
+    margin: -20px 0px -6px 0px;
 }
 
 .home-page button {

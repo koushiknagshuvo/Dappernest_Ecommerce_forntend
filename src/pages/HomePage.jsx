@@ -95,7 +95,7 @@ const HomePage = () => {
     if (value) {
       all.push(id);
     } else {
-      all = all.filter((c) => c !== id);
+      all = all.filter(c => c !== id);
     }
     setChecked(all);
   };
@@ -174,7 +174,7 @@ const HomePage = () => {
       <div className="home-page container">
         <h1 className="All_Products">Trending Now </h1>
         <div className="row gx-3">
-          {products?.map((p) => (
+          {products?.map(p => (
             <div className="card mt-5 col-md-6 col-xl-3" key={p._id}>
               <img
                 src={`/api/v1/product/product-photo/${p._id}`}
@@ -192,6 +192,13 @@ const HomePage = () => {
                       currency: "BDT",
                     })}
                   </h5>
+                  <div className="mb-2">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star-half"></i>
+                  </div>
                 </div>
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <div className="card-name-price">
@@ -216,7 +223,7 @@ const HomePage = () => {
             {products && products.length < total && (
               <button
                 className="btn loadmore"
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setPage(page + 1);
                 }}>

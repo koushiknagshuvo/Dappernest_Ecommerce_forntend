@@ -77,6 +77,12 @@
     text-decoration: underline;
 }
 
+
+.bxs-star,.bxs-star-half{
+    color: #F5C60D;
+}
+
+
 @media only screen and (max-width: 998px) {
     .product-details-info h1 {
         font-size: 30px;
